@@ -9,3 +9,24 @@ struct ListNode* removeElements(struct ListNode* head, int val) {
     dummy2.next = NULL;
 
     struct ListNode *temp = head;
+
+    while (temp != NULL) {
+
+        if (temp->val == val) {
+            prev1->next = temp;
+            prev1 = temp;
+        } else {
+            prev2->next = temp;
+            prev2 = temp;
+        }
+
+        temp = temp->next;
+    }
+
+    
+    prev1->next = NULL;
+    prev2->next = NULL;
+
+    
+    return dummy2.next;
+}
